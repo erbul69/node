@@ -1,0 +1,14 @@
+{
+  "engines": {
+    "node": ">19 <21"
+  },
+
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+
+  "scripts": {
+    "start": "node app.js"
+  }
+}
