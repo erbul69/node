@@ -1,4 +1,4 @@
-const http = request("http")
+const http = require("http");
 const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 let ipaddresses;
