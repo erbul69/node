@@ -9,8 +9,13 @@ const server = http.createServer(function(req, res){
         res.write("Ip adresiniz kaydedildi");
         res.end();
     }
-    if(req.url == "/getip"){
+    else if(req.url == "/getip"){
         res.write("Merhaba! ip adresiniz : " + ipaddresses);
+        res.end();
+    }
+
+    else{
+        res.write("Merhaba Dünya!");
         res.end();
     }
 });
