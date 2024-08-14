@@ -10,7 +10,7 @@ app.use("/setip", function(req, res){
 });
 
 app.use("/getip", function(req, res){
-    res.send("Merhaba! ip adresiniz : " + ipaddresses[0});
+    res.send("Merhaba! ip adresiniz : " + ipaddresses[0]);
 });
 
 app.listen(PORT, () => {
