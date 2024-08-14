@@ -12,7 +12,7 @@ const server = http.createServer(function(req, res){
     }
     else if(req.url == "/getip"){
     const htmlString = "<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>my home ip</title></head><body>" +
-        "<h2>Merhaba!</h2><p><b>Ip Adress: " + ip + "</b></p><p><b>Güncelleme:</b> " + date_time + "</p></body></html>";
+        "<h2>Merhaba!</h2><p><b>Ip Adress: " + ip + "</b></p><p><b>Güncelleme:</b> " + getDate() + "</p></body></html>";
         res.write(htmlString);
         res.end();
     }
@@ -22,6 +22,17 @@ const server = http.createServer(function(req, res){
         res.end();
     }
 });
+
+function getDate(){
+    let date = ("0" + date_time.getDate()).slice(-2);
+    let month = ("0" + (date_time.getMonth() + 1)).slice(-2);
+    let year = date_time.getFullYear();
+    let hours = date_time.getHours();
+    let minutes = date_time.getMinutes();
+    let seconds = date_time.getSeconds();
+    
+    return(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
+};
 
 server.listen(PORT, () => {
     console.log(`Web Server ${PORT} numaralı port üzerinde çalışıyor`);
