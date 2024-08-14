@@ -3,7 +3,7 @@ const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 let ipaddresses;
 
-http.createserver(function(req, res){
+const server = http.createserver(function(req, res){
     if(req.url == "/setip"){
         ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
         res.end("Ip adresiniz kaydedildi");
@@ -14,6 +14,6 @@ http.createserver(function(req, res){
     }
 });
 
-http.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Web Server ${PORT} numaralı port üzerinde çalışıyor`);
 });
