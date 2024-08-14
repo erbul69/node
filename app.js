@@ -6,7 +6,8 @@ let ipaddresses;
 const server = http.createServer(function(req, res){
     if(req.url == "/setip"){
         ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        res.end("Ip adresiniz kaydedildi");
+        res.write("Ip adresiniz kaydedildi");
+        res.end();
     }
     if(req.url == "/setip"){
         res.write("Merhaba! ip adresiniz : " + ipaddresses);
