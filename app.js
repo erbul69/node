@@ -6,7 +6,7 @@ let ipaddresses = [];
 
 app.use("/setip", function(req, res){
     ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    req.send("Ip adresiniz kaydedildi");
+    res.send("Ip adresiniz kaydedildi");
 ]);
 
 app.use("/getip", function(req, res){
