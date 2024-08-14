@@ -7,7 +7,7 @@ const server = http.createServer(function(req, res){
     if(req.url == "/setip"){
         ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
         let date_time = new Date();
-        console.log( date_time + ": Ip adresi günsellendi");
+        res.write( date_time + ": Ip adresi günsellendi");
         res.end();
     }
     else if(req.url == "/getip"){
