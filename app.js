@@ -1,18 +1,19 @@
-const express = require('express');
-const app = express();
-require("dotenv").config();
+const http = request("http")
 const PORT = process.env.PORT || 3000;
+require("dotenv").config();
 let ipaddresses;
 
-app.use("/setip", function(req, res){
-    ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    res.send("Ip adresiniz kaydedildi");
+http.createserver(function(req, res){
+    if(req.URL == "/setip"){
+        ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        res.end("Ip adresiniz kaydedildi");
+    }
+    if(req.URL == "/setip"){
+        res.send("Merhaba! ip adresiniz : " + ipaddresses);
+        res.end();
+    }
 });
 
-app.use("/getip", function(req, res){
-    res.send("Merhaba! ip adresiniz : " + ipaddresses);
-});
-
-app.listen(PORT, () => {
+http.listen(PORT, () => {
     console.log(`Web Server ${PORT} numaralı port üzerinde çalışıyor`);
 });
