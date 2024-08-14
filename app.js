@@ -4,7 +4,8 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
 app.use('/', function(req, res){
-    res.send("Merhaba Dünya");
+    const ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
+    res.send("Merhaba! ip adresiniz : " + ip);
 });
 
 app.listen(PORT, () => {
