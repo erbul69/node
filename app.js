@@ -1,7 +1,7 @@
 const http = require("http");
 const PORT = process.env.PORT || 3000;
 require("dotenv").config();
-let ipaddresses;
+let ipaddresses = "";
 
 const server = http.createServer(function(req, res){
     if(req.url == "/setip"){
