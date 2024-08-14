@@ -4,13 +4,9 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 let ipaddresses = [];
 
-app.use('/', function(req, res){
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    res.send("Merhaba! ip adresiniz : " + ip);
-});
-
 app.use("/setip", function(req.res){
     ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    req.send("Ip adresiniz kaydedildi");
 ]);
 
 app.use("/getip", function(req.res){
