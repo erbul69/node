@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
-let ipaddresses = [];
+let ipaddresses;
 
 app.use("/setip", function(req, res){
     ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
@@ -10,7 +10,7 @@ app.use("/setip", function(req, res){
 });
 
 app.use("/getip", function(req, res){
-    res.send("Merhaba! ip adresiniz : " + ipaddresses[0]);
+    res.send("Merhaba! ip adresiniz : " + ipaddresses);
 });
 
 app.listen(PORT, () => {
