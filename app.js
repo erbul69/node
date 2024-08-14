@@ -11,8 +11,8 @@ const server = http.createServer(function(req, res){
         res.end();
     }
     else if(req.url == "/getip"){
-    const htmlString = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>my home ip</title></head><body>" +
-        "<h2>Merhaba!</h2><p><b>Ip Adress: " + ipaddresses + "</b></p><p><b>Güncelleme:</b> " + update_time + "</p></body></html>";
+    const htmlString = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>my home ip</title></head><body>
+        <h2>Merhaba!</h2><p><b>Ip Adress: " + ipaddresses + "</b></p><p><b>Güncelleme:</b> " + update_time + "</p></body></html>";
         res.write(htmlString);
         res.end();
     }
