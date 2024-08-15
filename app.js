@@ -9,13 +9,13 @@ const server = http.createServer(function(req, res){
         if (req.method == 'POST') {
             var body = ''
             req.on('data', function(data) {
-                body += data
-                console.log(body.username)
-            })
+                body = data;
+                console.log(body);
+            });
             req.on('end', function() {
-                res.end(body.username)
-            })
-        }
+                res.end(body);
+            });
+        };
         else{
             ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
             update_time = getDate();
