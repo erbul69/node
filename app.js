@@ -7,19 +7,18 @@ let update_time = "";
 const server = http.createServer(function(req, res){
     if(req.url == "/setip"){
         if (req.method == 'POST') {
-            var body = ''
             req.on('data', function(data) {
-                body += data;
-                console.log(body + " / " + data);
+                let user = JSON.parse(data);
+                if(user.username == process.env.username && user.password == process.env.password) {
+                    ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+                    update_time = getDate();
+                }
             });
             req.on('end', function() {
-                let user = JSON.parse(body).username;
-                res.end(user);
+                res.end(ipaddresses.split(",")[0]);
             });
         }
         else{
-            ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-            update_time = getDate();
             res.end();            
         };
     }
