@@ -2,7 +2,7 @@ const http = require("http");
 const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 let ipaddresses = "";
-let update_time = "";
+let update_time = new Date();
 
 const server = http.createServer(function(req, res){
     if(req.url == "/setip"){
@@ -11,7 +11,7 @@ const server = http.createServer(function(req, res){
                 let user = JSON.parse(data);
                 if(user.username == process.env.username && user.password == process.env.password) {
                     ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-                    update_time = Date();
+                    update_time = new Date();
                 }
             });
             req.on('end', function() {
@@ -24,9 +24,9 @@ const server = http.createServer(function(req, res){
     }
     else if(req.url == "/getip"){
         const ip = ipaddresses.split(",")[0];
-        //let datetime = update_time.toUTCString();
+        let datetime = update_time.toUTCString();
         let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>my home ip</title></head><body>';
-        html += '<h2>Merhaba!</h2><p><b>Ip Adress:</b> ' + ip + '</p><p><b>Güncelleme:</b> ' + update_time + '</p></body></html>';
+        html += '<h2>Merhaba!</h2><p><b>Ip Adress:</b> ' + ip + '</p><p><b>Güncelleme:</b> ' + datetime + '</p></body></html>';
         
         res.writeHead(200, {'Content-Type': 'text/html'})
         res.end(html);
