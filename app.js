@@ -13,7 +13,7 @@ const server = http.createServer(function(req, res){
                 console.log(body + " / " + data);
             });
             req.on('end', function() {
-                res.end(body + " / " + data);
+                res.end(body);
             });
         }
         else{
