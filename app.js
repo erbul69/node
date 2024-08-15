@@ -27,7 +27,7 @@ const server = http.createServer(function(req, res){
         const data_time = update_time.toLocaleString("tr-TR", { timeZone: "Asia/Istanbul" });
         let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>my home ip</title></head><body>';
         html += '<h2>Merhaba!</h2><p><b>Ip Adress:</b> ' + ip + '</p><p><b>Güncelleme:</b><span id="date"> ' + update_time + '</span></p></body>';
-        html += '<script>document.getElementById("date").innerText = "' + update_time.toLocaleString("tr-TR", {timeZone: "Asia/Istanbul"}) + '" + " (GMT+3)";</script></html>'
+        html += '<script>document.getElementById("date").innerText = " ' + update_time.toLocaleString("tr-TR", {timeZone: "Asia/Istanbul"}) + '" + " (GMT+3)";</script></html>'
         res.writeHead(200, {'Content-Type': 'text/html'})
         res.end(html);
     }
