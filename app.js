@@ -11,10 +11,10 @@ const server = http.createServer(function(req, res){
         res.end();
     }
     else if(req.url == "/getip"){
-        //const htmlString = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>my home ip</title></head><body>";
-        //htmlString += "<h2>Merhaba!</h2><p><b>Ip Adress: </b>" + ipaddresses + "</p><p><b>Güncelleme:</b> " + update_time + "</p></body></html>";
-        res.write("<h2>Merhaba </h2>" + ipadresses);
-        res.end();
+        const htmlString = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>my home ip</title></head><body>";
+        htmlString += "<h2>Merhaba!</h2><p><b>Ip Adress: </b>" + ipaddresses + "</p><p><b>Güncelleme:</b> " + update_time + "</p></body></html>";
+        res.writeHead(200, {'Content-Type': 'text/html'})
+        response.end(html);
     }
     else{
         res.write("Merhaba Dünya!");
