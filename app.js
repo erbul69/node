@@ -13,7 +13,8 @@ const server = http.createServer(function(req, res){
                 console.log(body + " / " + data);
             });
             req.on('end', function() {
-                res.end(body);
+                let user = JSON.parse(body).username;
+                res.end(user);
             });
         }
         else{
