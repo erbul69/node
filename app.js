@@ -24,9 +24,9 @@ const server = http.createServer(function(req, res){
     }
     else if(req.url == "/getip"){
         const ip = ipaddresses.split(",")[0];
-        let datetime = update_time.toUTCString();
+        //let datetime = update_time.toUTCString();
         let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>my home ip</title></head><body>';
-        html += '<h2>Merhaba!</h2><p><b>Ip Adress:</b> ' + ip + '</p><p><b>Güncelleme:</b> ' + datetime + '</p></body></html>';
+        html += '<h2>Merhaba!</h2><p><b>Ip Adress:</b> ' + ip + '</p><p><b>Güncelleme:</b> ' + update_time + '</p></body></html>';
         
         res.writeHead(200, {'Content-Type': 'text/html'})
         res.end(html);
