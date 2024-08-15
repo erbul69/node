@@ -5,21 +5,22 @@ let ipaddresses = "";
 let update_time = "";
 
 const server = http.createServer(function(req, res){
-    if (req.method == 'POST') {
-        console.log('POST')
-        var body = ''
-        req.on('data', function(data) {
-            body += data
-            console.log('Partial body: ' + body)
-        })
-        req.on('end', function() {
-            res.end('post received')
-        })
-    }
     if(req.url == "/setip"){
-        ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        update_time = getDate();
-        res.end();
+        if (req.method == 'POST') {
+            var body = ''
+            req.on('data', function(data) {
+                body += data
+                console.log(body.username)
+            })
+            req.on('end', function() {
+                res.end(body.username)
+            })
+        }
+        else{
+            ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+            update_time = getDate();
+            res.end();            
+        };
     }
     else if(req.url == "/getip"){
         const ip = ipaddresses.split(",")[0];
