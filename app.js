@@ -15,7 +15,7 @@ const server = http.createServer(function(req, res){
             req.on('end', function() {
                 res.end(body);
             });
-        };
+        }
         else{
             ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
             update_time = getDate();
