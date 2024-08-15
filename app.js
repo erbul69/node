@@ -24,7 +24,7 @@ const server = http.createServer(function(req, res){
     }
     else if(req.url == "/getip"){
         const ip = ipaddresses.split(",")[0];
-        let datetime = update_time.toLocaleString("tr-TR", { timeZone: "Asia/Istanbul" })
+        let datetime = update_time.toLocaleString("tr-TR");
         let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>my home ip</title></head><body>';
         html += '<h2>Merhaba!</h2><p><b>Ip Adress:</b> ' + ip + '</p><p><b>Güncelleme:</b> ' + datetime + '</p></body></html>';
         
