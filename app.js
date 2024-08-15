@@ -9,11 +9,11 @@ const server = http.createServer(function(req, res){
         if (req.method == 'POST') {
             var body = ''
             req.on('data', function(data) {
-                body = JSON.parse(data);
-                console.log(body);
+                body += data;
+                console.log(body + " / " + data);
             });
             req.on('end', function() {
-                res.end(body.username);
+                res.end(body + " / " + data);
             });
         }
         else{
