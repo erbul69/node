@@ -13,8 +13,6 @@ const server = http.createServer(function(req, res){
             console.log('Partial body: ' + body)
         })
         req.on('end', function() {
-            console.log('Body: ' + body)
-            res.writeHead(200, {'Content-Type': 'text/html'})
             res.end('post received')
         })
     }
