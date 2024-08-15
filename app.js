@@ -24,9 +24,10 @@ const server = http.createServer(function(req, res){
     }
     else if(req.url == "/getip"){
         const ip = ipaddresses.split(",")[0];
+        const data_time = update_time.toLocaleString("tr-TR", { timeZone: "Asia/Istanbul" });
         let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>my home ip</title></head><body>';
         html += '<h2>Merhaba!</h2><p><b>Ip Adress:</b> ' + ip + '</p><p><b>Güncelleme:</b><span id="date"> ' + '' + '</span></p></body>'<script>';
-        html += document.getElementById("date").innerText = "' + update_time.toLocaleString("tr-TR", { timeZone: "Asia/Istanbul" }) + '" + " (GMT+3)";</script></html>'
+        html += document.getElementById("date").innerText = "' + data_time + '";</script></html>'
         res.writeHead(200, {'Content-Type': 'text/html'})
         res.end(html);
     }
