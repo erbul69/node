@@ -1,0 +1,40 @@
+extends ../layouts/layout
+
+block head
+    title= "Calculator"
+    link(rel="stylesheet" type="text/CSS" href="/css/calc.css")
+
+block scripts
+    script(src="/js/calc.js")
+
+block content
+    .container 
+        br
+        .calc
+            .screen
+                #operation
+                #number
+            .buttons
+                button(class="CE" value = "CE") CE
+                button(class="C" value = "C") C
+                button(class="operator" value = "/") /
+                button(class="operator" value = "*") *
+                button(class="number" value = "1") 1
+                button(class="number" value = "2") 2
+                button(class="number" value = "3") 3
+                button(class="operator" value = "-") -
+                button(class="number" value = "4") 4
+                button(class="number" value = "5") 5
+                button(class="number" value = "6") 6
+                button(class="operator" value = "+") +
+                button(class="number" value = "7") 7
+                button(class="number" value = "8") 8
+                button(class="number" value = "9") 9
+                button(class="eval" value = "=" style="grid-row: span 2; height: 65px;") =
+                button(id="neg" value = "")
+                    span
+                        sup + 
+                        span /
+                        sub -
+                button(class="number" value = "0") 0
+                button(class="decimal" value = ".") .

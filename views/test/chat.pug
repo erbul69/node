@@ -1,0 +1,20 @@
+extends ../layouts/layout
+
+block head
+    title= title
+    link(rel="stylesheet" type="text/CSS" href="/css/chat.css")
+
+block scripts
+    script.
+        const namespace = '#{namespace}';
+    script(src = "/socket.io/socket.io.js")
+    script(src = "/js/chat.js")
+
+
+block content
+    .container
+        .session
+        .chatbox 
+        .messagebox 
+            input(class="message" type="text") 
+            button Send

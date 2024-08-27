@@ -1,0 +1,96 @@
+html(lang="tr")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" type="text/css" href="/css/layout.css")
+        block head
+
+    body
+        div
+            div
+                .avatar
+                h2 Erdoğan Bülbül
+                .icon-box Developper
+                br
+                hr
+
+                div
+                    .icon-box
+                        img(class="icon" src="/images/email.svg" width="20")
+                    div
+                        .icon EMAIL
+                        div erbull@gmail.com
+                    .icon-box
+                        img(class="icon" src="/images/mobile.svg" width="20")
+                    div
+                        .icon PHONE
+                        div 505 7764115
+                    .icon-box
+                        img(class="icon" src="/images/calendar.svg" width="20")
+                    div
+                        .icon BIRDTHDAY
+                        div 30/01/1969
+                    .icon-box
+                        img(class="icon" src="/images/location.svg" width="20")
+                    div
+                        .icon LOCATION
+                        div İstanbul/TURKİYE
+            
+            div
+                nav
+                    .navbar
+                        div
+                            a(href="/") About
+                        div
+                            a(href="/resume") Resume
+                        .layout-dropdown
+                            div Projects
+                            div
+                                .layout-dropitem
+                                    a(href="/projects/calc") Calculator
+                                .layout-dropitem
+                                    a(href="/projects/cube") 3D Cube
+                                div(class="layout-dropdown layout-dropitem")
+                                    div Chat
+                                    div
+                                        .layout-dropitem
+                                            div(class="new-room") Oda aç
+                                        div(class="layout-dropdown layout-dropitem")
+                                            div Odaya gir
+                                            div(id="namespaces")
+
+                        div
+                            a(href="/blog") Blog
+                        div
+                            a(href="/contact") Contact
+                        
+                        if(username)
+                            .layout-dropdown
+                                div= username
+                                div 
+                                    .layout-dropitem
+                                        a(href="/account") Account
+                                    .layout-dropitem
+                                        a(href="/signout") Signout
+                        else
+                            .layout-dropdown
+                                div Sign
+                                div
+                                    .layout-dropitem
+                                        a(href="/signin") Signin
+                                    .layout-dropitem
+                                        a(href="/signup") Signup
+                                
+                .page-title
+                    h1= title
+                    div(style="width: 40px; height: 5px; background-color: orange; border-radius: 2px;")
+                
+                block content
+    
+    block foot
+      #footer
+        p some footer content
+    
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/layout.js")
+    block scripts

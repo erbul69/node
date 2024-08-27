@@ -1,0 +1,20 @@
+extends layouts/layout
+
+block head
+    title= "Login"
+
+block scripts
+    script(src="/js/sign.js")
+
+block content
+    .container
+        form
+            div(style="display:grid; width: 400px; grid-template-columns: auto auto; gap:10px; margin:100px")
+                label Username
+                input(name="username" type="text" maxlength="30")
+                label Password
+                input(name="password" type="password" maxlength="30")
+                div(style="grid-column: span 2; display:flex; justify-content: end; margin-top:10px")
+                    input(type="submit" value="Send")
+        
+                div(class="errors" style="grid-column: span 2; color: orange")

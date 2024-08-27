@@ -1,0 +1,25 @@
+extends layouts/layout
+
+block head
+    title= "Login"
+
+block scripts
+
+block content
+    form(name="user" action="/signup" method="post" target="_self")
+        div(style="display:grid; width: 250px; grid-template-columns: auto auto; gap:10px; margin-inline:auto;margin-top:100px")
+            label Username
+            input(name="username" type="text" value= user ? user.username : "")
+            label Name
+            input(name="name" type="text" value= user ? user.name : "")
+            label Surname
+            input(name="surname" type="text" value= user ? user.surname : "")
+            label Password
+            input(name="password" type="password")
+            label Retype
+            input(name="retry" type="password")
+        div(style="display:flex; width: 250px; justify-content: end; margin-inline: auto; margin-top:10px")
+            input(type="submit" value="Send")
+    if(err)
+        divSayfada hata var!
+        div= user.name

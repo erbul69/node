@@ -1,0 +1,27 @@
+extends layouts/layout.pug
+
+block head
+    title= "Contact"
+    link(rel="stylesheet" type="text/CSS" href="/css/contact.css")
+
+block content
+    .container
+
+        br
+
+        form(name="user" action="/sendmail" method="post" target="_self")
+            div(style="display:grid; width: 610px; grid-template-columns: 100px 500px; gap:10px; margin-inline:auto;margin-top:20px")
+                div(style="grid-column: span 2;")
+                    h2 Contact Form
+                label Your name
+                input(name="name" type="text" value = "")
+                label Your email
+                input(name="mail" type="text" value = "")
+                label Subject
+                input(name="subject" type="text")
+                label Message
+                textarea(name="message" rows="8" cols="100")
+
+
+            div(style="display:flex; width: 610px; justify-content: end; margin-inline: auto; margin-top:10px")
+                input(type="submit" value="Send")
