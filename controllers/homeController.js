@@ -62,10 +62,7 @@ function signout(req, res){
 function _setip(req, res){
 // if(user.username == process.env.username && user.password == process.env.password) {
     ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    console.log(ipaddress);
     update_time = new Date();
-    console.log(ipaddresses.split(",")[0])
-
     res.send(ipaddresses.split(",")[0]);
 }
 
