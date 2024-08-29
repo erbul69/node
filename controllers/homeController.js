@@ -56,6 +56,25 @@ function signout(req, res){
     })    
 };
 
+function _setip(req, res){
+// if(user.username == process.env.username && user.password == process.env.password) {
+    ipaddresses = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    console.log(ipaddress);
+    update_time = new Date();
+    console.log(ipaddresses.split(",")[0])
+
+    res.send(ipaddresses.split(",")[0]);
+}
+
+function _getip(req, res){
+    const ip = ipaddresses.split(",")[0];
+    let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>my home ip</title></head><body>';
+    html += '<h2>Merhaba!</h2><p><b>Ip Adress:</b> ' + ip + '</p><p><b>Güncelleme:</b><span id="date"> ' + '' + '</span></p></body>';
+    html += '<script>document.getElementById("date").innerText = "' + update_time.toLocaleString("tr-TR", {timeZone: "Asia/Istanbul"}) + '" + " (GMT+3)";</script></html>'
+    //res.set('Content-Type', 'text/html');
+    res.send(html);
+}
+
 router.get("/", home);
 router.get("/resume", resume);
 router.get("/blog", blog);
@@ -66,5 +85,8 @@ router.get("/signup", signup);
 router.get("/signout", signout);
 router.post("/signup", postsignup);
 router.post("/signin", postsignin);
+
+router.get("/getip", _getip);
+router.post("/setip", _setip);
 
 module.exports = router;
