@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const db = require("./databaseController_mongo");
 
+let ipaddresses = "";
+let update_time = new Date();
+
 function home(req, res){
     res.render('index', {title: "About me!"});
 };
